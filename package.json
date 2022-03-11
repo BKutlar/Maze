@@ -1,11 +1,10 @@
 {
+  "scripts": {
+    "start": "babel-node --extensions \".js\" main.js"
+  },
   "dependencies": {
     "@babel/core": "^7.17.5",
-    "@types/filesystem": "^0.0.32",
-    "file-system": "^2.2.2",
-    "typescript": "^4.6.2"
-  },
-  "devDependencies": {
-    "@types/node": "^17.0.21"
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11"
   }
 }
