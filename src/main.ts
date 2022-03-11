@@ -1,1 +1,1 @@
-console.log('Hello world', process.argv);
+import { readFileSync } from 'fs';
