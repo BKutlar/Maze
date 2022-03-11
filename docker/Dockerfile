@@ -9,4 +9,4 @@ COPY maps/ ./maps
 COPY src/ .
 
 
-ENTRYPOINT time yarn start ./maps/rect_01.map
+ENTRYPOINT time yarn start ./maps/rect_01.map 

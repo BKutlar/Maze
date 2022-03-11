@@ -1,18 +1,11 @@
 import {readFile} from 'fs';
 
 function main() {
-    // console.log('Hello world', process.argv);
+    
     readFile('maps/rect_01.map', "UTF-8", (err, data) => {
         if (err) throw err;
-        const lines = data.split('\r\n');
-        // for(let i=0; i < lines.length; i++) {
-        //     const line = lines[i].split(' ');
-        //     for(let j=0; j < line.length; j++) {
-
-        //         // matrices[j][i] = lines[i];
-        //     }
-        // }
-        
+        const lines = data.split(/\r?\n/);
+                
         const matrice = [];
         let startX;
         let startY;
@@ -50,9 +43,6 @@ function main() {
         matrice[curentX + 1][curentY] === '2' || ' ';
         matrice[curentX ][curentY-1] === '2' || ' ';
         matrice[curentX ][curentY +1] === '2' || ' ';
-
-
-
         continue;
     }
 
