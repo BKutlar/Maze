@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 // console.log('Hello world', process.argv);
 
 import {readFile} from 'fs';
@@ -15,4 +13,3 @@ function main() {
 
 
 main();
->>>>>>> d4743033666d0c04c7fb68489ab552b62557f6ec
