@@ -1,4 +1,5 @@
 import {readFile} from 'fs';
+import Queue from './Queue';
 
 function main() {
     
@@ -11,8 +12,8 @@ function main() {
         let startY;
         let endX;
         let endY;
-        let curentX;
-        let curentY;
+        let currentX;
+        let currentY;
         for(let x = 0; x<lines.length; x++) {
             if(!matrice[x]) {
                 matrice[x] = [];
@@ -23,8 +24,8 @@ function main() {
               if(lines[x][y] === '1') {
                 startX = x;
                 startY = y;
-                curentX = x;
-                curentY = y;
+                currentX = x;
+                currentY = y;
               }
 
               if(lines[x][y] === '2') {
@@ -35,19 +36,58 @@ function main() {
             
         }
         
-        console.log(matrice,startX, startY, endX, endY);
-    });
-    let isFound= false;
-    while(isFound){
-        matrice[curentX - 1][curentY] === '2' || ' ';
-        matrice[curentX + 1][curentY] === '2' || ' ';
-        matrice[curentX ][curentY-1] === '2' || ' ';
-        matrice[curentX ][curentY +1] === '2' || ' ';
-        continue;
+        // console.log(matrice,startX, startY, endX, endY);
+        let isFound= false;
+    const q = new Queue();
+    while(!isFound){
+        if(matrice[currentX - 1][currentY] === '2' || ' '){
+         currentX--;
+         q.enqueue([currentX, currentY]);
+         console.log(q)
+        //  isFound=true;
+         continue;
+         
+        };
+
+        if( matrice[currentX + 1][currentY] === '2' || ' '){
+          currentX++;
+          q.enqueue([currentX, currentY]);
+          console.log(q)
+         //  isFound=true;
+          continue;
+          
+         };
+
+         if(  matrice[currentX ][currentY-1] === '2' || ' '){
+          currentY--;
+          q.enqueue([currentX, currentY]);
+          console.log(q)
+         //  isFound=true;
+          continue;
+          
+         };
+        
+
+         if( matrice[currentX ][currentY +1] === '2' || ' '){
+          currentY++;
+          q.enqueue([currentX, currentY]);
+          console.log(q)
+          isFound=true;
+          continue;
+          
+         };
+        
+        
+       
+       
+                
+        
     }
 
 
 
+    });
+    
 }
 
 
