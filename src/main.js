@@ -40,39 +40,54 @@ function main() {
         let isFound= false;
     const q = new Queue();
     while(!isFound){
-        if(matrice[currentX - 1][currentY] === '2' || ' '){
-         currentX--;
-         q.enqueue([currentX, currentY]);
-         console.log(q)
-        //  isFound=true;
-         continue;
+      console.log(currentX, currentY);
+        if(
          
-        };
+          (currentX < matrice.length && matrice[currentX + 1][currentY] === '2') ||
+          (currentY > 0 && matrice[currentX][currentY - 1] === '2') ||
+          (currentY < matrice[currentX].length && matrice[currentX][currentY + 1] === '2') || 
+          (currentX > 0 && matrice[currentX - 1][currentY] === '2') 
+        ) 
+        
+        {
+          isFound = true;
+          q.enqueue([currentX, currentY]);
+          break;
+        }
 
-        if( matrice[currentX + 1][currentY] === '2' || ' '){
-          currentX++;
+        if(currentX > 0 && matrice[currentX - 1][currentY] === '2' || ' '){
+          currentX--;
           q.enqueue([currentX, currentY]);
           console.log(q)
+          //isFound=true;
+          continue;
+ 
+         };
+
+        if(currentX < matrice.length && matrice[currentX + 1][currentY] === '2' || ' '){
+          currentX++;
+          q.enqueue([currentX, currentY]);
+         // console.log(q)
          //  isFound=true;
           continue;
           
          };
 
-         if(  matrice[currentX ][currentY-1] === '2' || ' '){
+         if(  currentY > 0 && matrice[currentX][currentY-1] === '2' || ' '){
           currentY--;
           q.enqueue([currentX, currentY]);
-          console.log(q)
+         // console.log(q)
          //  isFound=true;
           continue;
           
          };
         
 
-         if( matrice[currentX ][currentY +1] === '2' || ' '){
+         if( currentY < matrice[currentX].length && matrice[currentX][currentY +1] === '2' || ' '){
           currentY++;
           q.enqueue([currentX, currentY]);
           console.log(q)
-          isFound=true;
+          //isFound=true;
           continue;
           
          };
