@@ -3,7 +3,7 @@ import Queue from './Queue';
 
 function main() {
     
-    readFile('maps/rect_01.map', "UTF-8", (err, data) => {
+    readFile('maps/rect_05.map', "UTF-8", (err, data) => {
         if (err) throw err;
         const lines = data.split(/\r?\n/);
                 
@@ -90,21 +90,12 @@ function main() {
           //isFound=true;
           continue;
           
-         };
-        
-        
-       
-       
-                
+         };          
         
     }
 
-
-
-    });
-    
+    });  
 }
-
 
 main();
 
