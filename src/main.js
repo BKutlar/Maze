@@ -100,14 +100,14 @@ function main() {
     // });  
     const fs = require('fs');
 const path = require('path');
-const filename = path.join(__dirname, 'maps/rect_04.map');
+const filename = path.join(__dirname, 'maps/rect_05.map');
 const file = fs.readFileSync(filename).toString().split(/\r?\n/);
 
-const labyrinth = [];
-let posNumberOne = [];
-let posNumberTwo = [];
+const maps = [];
+let positionX = [];
+let positionY = [];
 
-let nbLines = 0
+let Linesmaps = 0
 
 String.prototype.replaceAt = function(index, replacement) {
     return this.substr(0, index) + replacement + this.substr(index + replacement.length);
@@ -115,28 +115,28 @@ String.prototype.replaceAt = function(index, replacement) {
 
 for (const line of file) {
 
-  if (nbLines != 0) {
-    let lineWithoutSpace;
+  if (Linesmaps != 0) {
+    let wall;
 
-    if (line.indexOf("1") != -1) posNumberOne.push(line.indexOf("1"));
-    if (line.indexOf("2") != -1) posNumberTwo.push(line.indexOf("2"));
+    if (line.indexOf("1") != -1) positionX.push(line.indexOf("1"));
+    if (line.indexOf("2") != -1) positionY.push(line.indexOf("2"));
 
     if(line.indexOf(" ") > 1) {
-      if(line.substring(posNumberOne[0],posNumberOne[0] + 1) == " ") {
-        lineWithoutSpace = line.replaceAt(posNumberOne[0], ".");
-        labyrinth.push(lineWithoutSpace);
+      if(line.substring(positionX[0],positionX[0] + 1) == " ") {
+        wall = line.replaceAt(positionX[0], ".");
+        maps.push(wall);
       } else {
-        lineWithoutSpace = line.replace(/\s/g, ".");
-        labyrinth.push(lineWithoutSpace);
+        wall = line.replace(/\s/g, ".");
+        maps.push(wall);
       }
     } else {
-        labyrinth.push(line);
+        maps.push(line);
       }
   }
 
-  nbLines++
+  Linesmaps++
 }
 
-console.log(labyrinth);
+console.log(maps);
 }
 main();
