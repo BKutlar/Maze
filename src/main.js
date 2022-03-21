@@ -139,6 +139,4 @@ for (const line of file) {
 
 console.log(labyrinth);
 }
-
 main();
-
