@@ -100,8 +100,8 @@ function main() {
     // });  
     const fs = require('fs');
 const path = require('path');
-const filename = path.join(__dirname, 'maps/oval_01.map');
-const file = fs.readFileSync(filename).toString().split("\n");
+const filename = path.join(__dirname, 'maps/rect_04.map');
+const file = fs.readFileSync(filename).toString().split(/\r?\n/);
 
 const labyrinth = [];
 let posNumberOne = [];
@@ -123,10 +123,10 @@ for (const line of file) {
 
     if(line.indexOf(" ") > 1) {
       if(line.substring(posNumberOne[0],posNumberOne[0] + 1) == " ") {
-        lineWithoutSpace = line.replaceAt(posNumberOne[0], "-");
+        lineWithoutSpace = line.replaceAt(posNumberOne[0], ".");
         labyrinth.push(lineWithoutSpace);
       } else {
-        lineWithoutSpace = line.replace(/\s/g, "-");
+        lineWithoutSpace = line.replace(/\s/g, ".");
         labyrinth.push(lineWithoutSpace);
       }
     } else {
