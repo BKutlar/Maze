@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "babel-node --extensions \".js\" main.js"
+    "start": "babel-node --extensions \".js\" main.js",
+    "time": "time ./index.js"
   },
   "dependencies": {
     "@babel/core": "^7.17.5",
